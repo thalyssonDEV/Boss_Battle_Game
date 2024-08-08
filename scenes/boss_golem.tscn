@@ -1,0 +1,53 @@
+[gd_scene load_steps=8 format=3 uid="uid://js50p51se0n0"]
+
+[ext_resource type="Texture2D" uid="uid://dvnwkww7l5f0x" path="res://boss_assets/Mecha-stone Golem 0.1/PNG sheet/Character_sheet.png" id="1_4mvqt"]
+[ext_resource type="Script" path="res://scripts/boss_golem.gd" id="1_hhih7"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lsdym"]
+atlas = ExtResource("1_4mvqt")
+region = Rect2(0, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uch8d"]
+atlas = ExtResource("1_4mvqt")
+region = Rect2(100, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dgoos"]
+atlas = ExtResource("1_4mvqt")
+region = Rect2(200, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ttnhg"]
+atlas = ExtResource("1_4mvqt")
+region = Rect2(300, 0, 100, 100)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_sfreq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lsdym")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uch8d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dgoos")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ttnhg")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[node name="Boss_Golem" type="CharacterBody2D"]
+script = ExtResource("1_hhih7")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+z_index = -1
+texture_filter = 1
+position = Vector2(0, -1)
+scale = Vector2(1.5, 1.5)
+sprite_frames = SubResource("SpriteFrames_sfreq")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.912209
